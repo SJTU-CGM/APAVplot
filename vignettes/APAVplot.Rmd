@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
  
 ### 1.1 Pan-genome and PAV analysis
 
-&emsp;&emsp;Pan-genome is the collective whole-genome sequences of a given population, revealing the diversity and functional potential within that population. The PAV(Presence/absence variation) analysis is an essential step in pangenome analysis. The core genome contains genomic regions shared by all individuals and the distributed genome is not shared by all. The distributed genome can be further divided into genomic regions shared in most members (soft-core genome), regions shared between some members (distributed/accessory genome), and regions present in only one member (unique/private genome).
+&emsp;&emsp;Pan-genome is the collective whole-genome sequences of a given population, revealing the diversity and functional potential within that population. The PAV(Presence/absence variation) analysis is an essential step in pan-genome analysis. The core genome contains genomic regions shared by all individuals and the distributed genome is not shared by all. The distributed genome can be further divided into genomic regions shared in most members (soft-core genome), regions shared between some members (distributed/accessory genome), and regions present in only one member (unique/private genome).
 
 
 ### 1.2 The functions in APAVplot
@@ -50,7 +50,7 @@ knitr::opts_chunk$set(
 ### 2.2 Check or install packages
 
 ```{r eval=FALSE}
-packages <- c("snowfall", "data.table", "ggdendro", "ggplot2", "ggrepel", "ggsignif", "randomcoloR")
+packages <- c("data.table", "ggdendro", "ggplot2", "ggrepel", "ggsignif", "ggnewscale", "patchwork", "snowfall", "circlize")
 lapply(packages, function(x) {
 	if(!require(x, character.only = TRUE)) {
 		install.packages(x, dependencies = TRUE)
@@ -424,19 +424,20 @@ pheno_violin(my_pav, "Coverage_mean", sample(my_pav@region$name[my_pav@region$ty
 &emsp;&emsp;Putting multiple resulted graphs together can be helpful to observe biological insights.
 
 ```{r fig.height=6, fig.width=7}
-do.call(gridExtra::grid.arrange, 
-        lapply(sample(my_pav@region$name[my_pav@region$type == "Distributed"], 4), function(x){
+p <- lapply(sample(my_pav@region$name[my_pav@region$type == "Distributed"], 4), function(x){
           pheno_bar(my_pav, "Region", x, legend_title_size = 9, legend_text_size = 8)
-        }))
+        })
+library(patchwork)
+p[[1]] + p[[2]] + p[[3]] + p[[4]]
 
 ```
 
 
 ```{r fig.height=8, fig.width=7}
-do.call(gridExtra::grid.arrange, 
-        lapply(sample(my_pav@region$name[my_pav@region$type == "Distributed"], 4), function(x){
+p <- lapply(sample(my_pav@region$name[my_pav@region$type == "Distributed"], 4), function(x){
           pheno_violin(my_pav, "Coverage_mean", x, legend_title_size = 9, legend_text_size = 8)
-        }))
+        })
+p[[1]] + p[[2]] + p[[3]] + p[[4]]
 
 ```
 
