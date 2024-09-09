@@ -7,7 +7,7 @@
 
 ### 1.2 The functions in APAVplot
 
-&emsp;&emsp;APAVplot is a R package designed for CPAV for the subsequent analysis and visualization of PAV profile. It is efficient to explore and visualize the complex results in PAV analysis. It provides the following modules:
+&emsp;&emsp;APAVplot is a R package designed for [APAV](https://github.com/SJTU-CGM/APAV) for the subsequent analysis and visualization of PAV profile. It is efficient to explore and visualize the complex results in PAV analysis. It provides the following modules:
 
 * Visualization of coverage : First you need to build a COV class using `get_cov_obj()`. `cov_heatmap()` shows coverage profile in a heat map. `cov_density()` shows coverage distribution of interested regions.
 
@@ -15,7 +15,7 @@
 
 * Phenotype association and visualization : `pheno_stat` performs phenotype association calculations. `pheno_heatmap()`, `pheno_manhattan()`, `pheno_block()`, `pheno_bar()` and `pheno_violin()` display the results. 
 
-* Drawing growth curve : `sim_plot()` is used for visualization of pan/core/private genome size estimation by simulation. The input is the output table of `CPAV sim`.
+* Drawing growth curve : `sim_plot()` is used for visualization of pan/core/private genome size estimation by simulation. The input is the output table of `apav sim`.
 
 * Visualization of elements : `plot_ele_cov()`, `plot_ele_pav()` and `plot_ele_depth()` are used to check elements at coverage, PAV and depth level. 
 
