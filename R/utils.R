@@ -104,7 +104,7 @@ get_type_info <- function(sample_n, private, softcore, prob, use_bin, p_value){
     type_info <- data.frame(
       sample_n = 1:sample_n,
       region_type = c(rep("Distributed",sample_n - 1 - sample_dist_n),
-                    rep("Softcore",sample_dist_n),"Core")
+                      rep("Softcore",sample_dist_n),"Core")
     )
     dist_sample_n <- c(1, sample_n - 1 - sample_dist_n)
   } else {
@@ -183,7 +183,7 @@ match_logi <- function(arg_name, arg){
 get_type_palette <- function(colors){
   groups <- c("Core", "Softcore", "Distributed", "Private")
   bc <- structure(c("#8FB4DC", "#debc58", "#B95758", "#A38CC2"),
-                            names = groups)
+                  names = groups)
   if(is.null(colors)){
     res <- bc
   }else{
@@ -305,7 +305,7 @@ get_palette <- function(data_list, mode, num_re_func = T){
     Ns <- c(0, cumsum(as.vector(named_colorN)))
     res_discrete <- lapply(1:length(named_colorN), function(x){
       cur_col <- colors[(Ns[x]+1):Ns[x+1]]
-      names(cur_col) <- unique(data_list_discrete[[x]])
+      names(cur_col) <- sort(unique(data_list_discrete[[x]]))
       cur_col
     })
     names(res_discrete) <- names(named_colorN)
@@ -339,9 +339,17 @@ get_anno_palette <- function(input_colors, data_list, mode = "def", num_re_func 
         }
       } else {
         if(!is.null(names(x_input))){
-          merge_args(x_def, x_input)
+          x_input <- x_input[intersect(names(x_def), names(x_input))]
         } else {
-          x_def
+          if(length(x_input) > length(x_def)){
+            x_input <- x_input[1:length(x_def)]
+          }
+          names(x_input) <- names(x_def)[1:length(x_input)]
+        }
+        if(length(x_input) == length(x_def)){
+          x_input
+        }else{
+          merge_args(x_def, x_input)
         }
       }
     }
