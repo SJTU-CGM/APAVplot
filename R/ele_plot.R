@@ -27,6 +27,7 @@
 #' e.g. c(CDS = "#d77478", five_prime_UTR = "#ecbf40")
 #' @param pheno_info_color_list A list contains named vector of colors for phenotype.
 #' e.g. list(gender = c("Male" = "green", "Female" = "red"), age = c("yellow", "red"))
+#' @param pheno_border The color of cell borders in phenotype annotation.
 #'
 #' @param seq_name_size The size of sequence name.
 #' @param loc_name_size The size of coordinate numbers.
@@ -68,6 +69,7 @@ plot_ele_depth <- function(
     gene_colors = structure(c("gray70", "gray85", "#d77478", "#ecbf40", "#ecbf40"),
                             names = c("transcript", "exon", "CDS", "five_prime_UTR", "three_prime_UTR")),
     pheno_info_color_list = NULL,
+    pheno_border = NA,
 
     seq_name_size = NULL,
     loc_name_size = NULL,
@@ -162,6 +164,7 @@ plot_ele_depth <- function(
                                depth_colors,
                                pheno_data,
                                pheno_colors,
+                               pheno_border,
                                lowlight_colors,
                                ele_pos,
                                show_sample_name,
@@ -253,10 +256,12 @@ plot_ele_depth <- function(
 #' @param ele_color The color of element regions.
 #' @param ele_line_color The color for the line pointing to elements.
 #' @param cov_colors A vector of colors for coverage.
+#' @param cell_border The color of cell borders in heat map.
 #' @param gene_colors A named vector for gene elements.
 #' e.g. c(CDS = "#d77478", five_prime_UTR = "#ecbf40")
 #' @param pheno_info_color_list A list contains named vector of colors for phenotype.
 #' e.g. list(gender = c("Male" = "green", "Female" = "red"), age = c("yellow", "red"))
+#' @param pheno_border The color of cell borders in phenotype annotation.
 #'
 #' @param seq_name_size The size of sequence name.
 #' @param loc_name_size The size of coordinate numbers.
@@ -297,9 +302,11 @@ plot_ele_cov <- function(
     ele_color = "#A6CEE3",
     ele_line_color = "gray",
     cov_colors = c("#5680ae", "gray90"),
+    cell_border = NA,
     gene_colors = structure(c("gray70", "gray85", "#d77478", "#ecbf40", "#ecbf40"),
                             names = c("transcript", "exon", "CDS", "five_prime_UTR", "three_prime_UTR")),
     pheno_info_color_list = NULL,
+    pheno_border = NA,
 
     seq_name_size = NULL,
     loc_name_size = NULL,
@@ -336,8 +343,10 @@ plot_ele_cov <- function(
     ele_color,
     ele_line_color,
     cov_colors,
+    cell_border,
     gene_colors,
     pheno_info_color_list,
+    pheno_border,
     seq_name_size,
     loc_name_size,
     show_ele_name,
@@ -374,10 +383,12 @@ plot_ele_cov <- function(
 #' @param ele_line_color The color for the line pointing to elements.
 #' @param pav_colors A named vector of colors for presence and absence.
 #' e.g. c(presence = "#5680ae", absence = "gray70")
+#' @param cell_border The color of cell borders in heat map.
 #' @param gene_colors A named vector for gene elements.
 #' e.g. c(CDS = "#d77478", five_prime_UTR = "#ecbf40")
 #' @param pheno_info_color_list A list contains named vector of colors for phenotype.
 #' e.g. list(gender = c("Male" = "green", "Female" = "red"), age = c("yellow", "red"))
+#' @param pheno_border The color of cell borders in phenotype annotation.
 #'
 #' @param seq_name_size The size of sequence name.
 #' @param loc_name_size The size of coordinate numbers.
@@ -417,9 +428,11 @@ plot_ele_pav <- function(
     ele_color = "#A6CEE3",
     ele_line_color = "gray",
     pav_colors = c(presence = "#5680ae", absence = "gray70"),
+    cell_border = NA,
     gene_colors = structure(c("gray70", "gray85", "#d77478", "#ecbf40", "#ecbf40"),
                             names = c("transcript", "exon", "CDS", "five_prime_UTR", "three_prime_UTR")),
     pheno_info_color_list = NULL,
+    pheno_border = NA,
 
     seq_name_size = NULL,
     loc_name_size = NULL,
@@ -461,8 +474,10 @@ plot_ele_pav <- function(
     ele_color,
     ele_line_color,
     pav_colors,
+    cell_border,
     gene_colors,
     pheno_info_color_list,
+    pheno_border,
     seq_name_size,
     loc_name_size,
     show_ele_name,
@@ -494,8 +509,10 @@ plot_ele <- function(
   ele_color,
   ele_line_color,
   ht_colors,
+  cell_border,
   gene_colors,
   pheno_info_color_list,
+  pheno_border,
 
   seq_name_size,
   loc_name_size,
@@ -569,8 +586,10 @@ plot_ele <- function(
                      clustering_distance,
                      clustering_method,
                      ht_colors,
+                     cell_border,
                      pheno_data,
                      pheno_colors,
+                     pheno_border,
                      show_ele_name,
                      ele_name_size,
                      ele_name_rot,
@@ -647,6 +666,7 @@ get_depth_ps <- function(depth_table,
                          depth_colors,
                          pheno_data,
                          pheno_colors,
+                         pheno_border,
                          lowlight_colors,
                          ele_pos,
                          show_sample_name,
@@ -658,7 +678,7 @@ get_depth_ps <- function(depth_table,
   Pos = Sample = Depth = NULL
 
   anno_res <- get_anno(depth_table[, 3:ncol(depth_table)],
-                       pheno_data, pheno_colors,
+                       pheno_data, pheno_colors, pheno_border,
                        cluster_samples,
                        clustering_distance, clustering_method,
                        legend_title_size, legend_text_size)
@@ -733,8 +753,10 @@ get_ht_ps <- function(name,
                     clustering_distance,
                     clustering_method,
                     ht_colors,
+                    cell_border,
                     pheno_data,
                     pheno_colors,
+                    pheno_border,
                     show_ele_name,
                     ele_name_size,
                     ele_name_rot,
@@ -746,12 +768,12 @@ get_ht_ps <- function(name,
 
   Element = Sample = Value = NULL
 
-  cov_d <-  data.frame(apply(data[, 6:ncol(data)], 2, as.numeric))
+  cov_d <-  data.frame(apply(data[, 6:ncol(data)], 2, as.numeric), check.names = F)
   if(nrow(data) == 1){
-    cov_d <- data.frame(t(cov_d))
+    cov_d <- data.frame(t(cov_d), check.names = F)
   }
 
-  anno_res <- get_anno(cov_d, pheno_data, pheno_colors,
+  anno_res <- get_anno(cov_d, pheno_data, pheno_colors, pheno_border,
                        cluster_samples,
                        clustering_distance, clustering_method,
                        legend_title_size, legend_text_size)
@@ -777,7 +799,7 @@ get_ht_ps <- function(name,
   }
 
   p_ht <- p_ht +
-    geom_tile(color = "white") +
+    geom_tile(color = cell_border) +
     scale_x_discrete(expand = expansion(mult=0),
                      breaks = ele_name,
                      labels = trunc_str(ele_name, ele_name_len))+
@@ -936,6 +958,7 @@ get_ele <- function(data, ele_color, ele_line_color, loc_start, loc_end){
 get_anno <- function(table_data,
                      pheno_data,
                      pheno_colors,
+                     pheno_border,
                      cluster_samples,
                      clustering_distance,
                      clustering_method,
@@ -993,11 +1016,16 @@ get_anno <- function(table_data,
     }
     pheno_data <- pheno_data[label_data$label,,drop = F]
     for(j in 1:ncol(pheno_data)){
+      if(is.na(pheno_border)){
+        pheno_border_text <- "color = NA"
+      }else{
+        pheno_border_text <- paste0("color = '", pheno_border,"'")
+      }
       eval(parse(text = paste0("p_anno <- p_anno +
             geom_tile(data = pheno_data,
             aes(x = ", j -.5, ", y = 1:samples_n,
                           width = ", wid, ", height = 1,
-                          fill = ", colnames(pheno_data)[j], "), color = 'white')")))
+                          fill = ", colnames(pheno_data)[j], "), ", pheno_border_text, ")")))
       if(is.numeric(pheno_data[,j])){
         cur_colors <- attributes(pheno_colors[[colnames(pheno_data)[j]]])$colors
         p_anno <- p_anno +
