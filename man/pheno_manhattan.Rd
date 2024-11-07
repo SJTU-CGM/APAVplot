@@ -42,7 +42,7 @@ pheno_manhattan(
 
 \item{x_text_size}{The size of tick labels on x-axis.}
 
-\item{x_text_angle}{The angle of tick labels, ranging from 0 to 1.}
+\item{x_text_angle}{The angle of tick labels.}
 
 \item{x_title_size}{The size of x-axis title.}
 

@@ -17,9 +17,11 @@ plot_ele_cov(
   ele_color = "#A6CEE3",
   ele_line_color = "gray",
   cov_colors = c("#5680ae", "gray90"),
+  cell_border = NA,
   gene_colors = structure(c("gray70", "gray85", "#d77478", "#ecbf40", "#ecbf40"), names =
     c("transcript", "exon", "CDS", "five_prime_UTR", "three_prime_UTR")),
   pheno_info_color_list = NULL,
+  pheno_border = NA,
   seq_name_size = NULL,
   loc_name_size = NULL,
   show_ele_name = T,
@@ -57,11 +59,15 @@ plot_ele_cov(
 
 \item{cov_colors}{A vector of colors for coverage.}
 
+\item{cell_border}{The color of cell borders in heat map.}
+
 \item{gene_colors}{A named vector for gene elements.
 e.g. c(CDS = "#d77478", five_prime_UTR = "#ecbf40")}
 
 \item{pheno_info_color_list}{A list contains named vector of colors for phenotype.
 e.g. list(gender = c("Male" = "green", "Female" = "red"), age = c("yellow", "red"))}
+
+\item{pheno_border}{The color of cell borders in phenotype annotation.}
 
 \item{seq_name_size}{The size of sequence name.}
 

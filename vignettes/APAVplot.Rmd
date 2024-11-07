@@ -480,8 +480,8 @@ data("ele_pav")
 data("ele_depth")
 data("ele_gff")
 data("ele_pheno")
-plot_ele_pav(ele_pav, gff_data = ele_gff, pheno_data = ele_pheno)
-plot_ele_cov(ele_cov, gff_data = ele_gff, pheno_data = ele_pheno)
+plot_ele_pav(ele_pav, gff_data = ele_gff, pheno_data = ele_pheno, cell_border = "white", pheno_border = "white")
+plot_ele_cov(ele_cov, gff_data = ele_gff, pheno_data = ele_pheno, cell_border = "white", pheno_border = "white")
 plot_ele_depth(ele_depth, ele_cov, gff_data = ele_gff, pheno_data = ele_pheno)
 ```
  

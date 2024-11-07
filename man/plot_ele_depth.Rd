@@ -22,6 +22,7 @@ plot_ele_depth(
   gene_colors = structure(c("gray70", "gray85", "#d77478", "#ecbf40", "#ecbf40"), names =
     c("transcript", "exon", "CDS", "five_prime_UTR", "three_prime_UTR")),
   pheno_info_color_list = NULL,
+  pheno_border = NA,
   seq_name_size = NULL,
   loc_name_size = NULL,
   show_sample_name = T,
@@ -66,6 +67,8 @@ e.g. c(CDS = "#d77478", five_prime_UTR = "#ecbf40")}
 
 \item{pheno_info_color_list}{A list contains named vector of colors for phenotype.
 e.g. list(gender = c("Male" = "green", "Female" = "red"), age = c("yellow", "red"))}
+
+\item{pheno_border}{The color of cell borders in phenotype annotation.}
 
 \item{seq_name_size}{The size of sequence name.}
 
