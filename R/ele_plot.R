@@ -112,8 +112,8 @@ plot_ele_depth <- function(
   if(!is.null(ele_data)){
     if(is.numeric(ele_data$Start)){
       ele_data <- ele_data[order(ele_data$Start),]
-      loc_start <- min(ele_data$Start)
-      loc_end <- max(ele_data$End)
+      loc_start <- min(loc_start, min(ele_data$Start))
+      loc_end <- max(loc_end, max(ele_data$End))
     }else{
       ele_data <- ele_data[order(as.numeric(unlist(lapply(strsplit(ele_data$Start, ";|,"), function(x){x[[1]]})))),]
       loc_start <- min(loc_start, min(as.numeric(unlist(strsplit(ele_data$Start, ";|,")))))
@@ -853,6 +853,9 @@ get_ht_ps <- function(name,
 get_struc <- function(gff_data, gene_colors){
 
   type = start = end = tn = NULL
+
+  gff_data$type <- gsub("3UTR", "three_prime_UTR", gff_data$type)
+  gff_data$type <- gsub("5UTR", "five_prime_UTR", gff_data$type)
 
   gff_data$parent <- unlist(lapply(gff_data$attr, function(x){get_attr(x, "Parent")}))
   gff_data$ID <- unlist(lapply(gff_data$attr, function(x){get_attr(x, "ID")}))
