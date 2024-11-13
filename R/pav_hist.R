@@ -34,7 +34,7 @@ pav_hist <- function(pav_obj,
                      ring_pos_x = .5,
                      ring_pos_y = .6,
                      ring_r = .3,
-                     ring_label_size = NA,
+                     ring_label_size = 3.5,
                      type_colors = NULL,
                      x_title = "Sample Number",
                      x_title_size = NULL,
@@ -59,6 +59,8 @@ pav_hist <- function(pav_obj,
                   unique(regions_data[,c("sample_n", "type")]),
                   by.x = "Var1", by.y = "sample_n")
   p_data$Var1 <- as.integer(as.vector(p_data$Var1))
+
+  p_data <- subset(p_data, type != "Core")
 
   p1 <- ggplot() +
     geom_bar(data = p_data, aes(x = Var1, y = Freq, fill = factor(type, levels = types)),stat = "identity", width = 0.8) +
@@ -89,7 +91,7 @@ pav_hist <- function(pav_obj,
 
     p2 <- ggplot(ring_data, aes(x = x, y = 1, width = Freq, height = 2)) +
       geom_tile(aes(fill = Var1)) +
-      ggrepel::geom_text_repel(aes( y = 2.05, label = paste0(Var1,"\n(",round(per, 1)," %)")),
+      ggrepel::geom_text_repel(aes( y = 2.05, label = paste0(Var1,"\n(", Freq, ", ", round(per, 1), "%)")),
                                ylim = c(3,NA), direction = "x", nudge_y = 1, size = ring_label_size, fontface = "bold") +
       coord_polar("x") +
       scale_y_continuous(limits = c(-2, 4)) +

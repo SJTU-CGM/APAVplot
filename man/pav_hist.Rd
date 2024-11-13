@@ -10,7 +10,7 @@ pav_hist(
   ring_pos_x = 0.5,
   ring_pos_y = 0.6,
   ring_r = 0.3,
-  ring_label_size = NA,
+  ring_label_size = 3.5,
   type_colors = NULL,
   x_title = "Sample Number",
   x_title_size = NULL,
