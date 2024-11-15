@@ -11,6 +11,7 @@
 #' @param add_pheno_info A character string of `pheno_info` names.
 #' @param pheno_info_color_list A list contains named vector of colors for `pheno_info` annotation.
 #' e.g. list(gender = c("Male" = "green", "Female" = "red"))
+#' @param y_title The text for the y-axis title.
 #' @param x_text_size The size of tick labels on x-axis.
 #' @param y_text_size The size of tick labels on y-axis.
 #' @param x_title_size The size of x-axis title.
@@ -22,13 +23,14 @@
 
 
 pav_halfviolin <- function(pav_obj,
-                           violin_color = "#7e9bc0",
-                           add_pheno_info = NULL,
-                           pheno_info_color_list = NULL,
-                           x_text_size  = NULL,
-                           y_text_size = NULL,
-                           x_title_size = NULL,
-                           y_title_size = NULL){
+                     violin_color = "#7e9bc0",
+                     add_pheno_info = NULL,
+                     pheno_info_color_list = NULL,
+                     y_title = "Target Region Number",
+                     x_text_size  = NULL,
+                     y_text_size = NULL,
+                     x_title_size = NULL,
+                     y_title_size = NULL){
 
   pav_data <- pav_obj@pav_data
 
@@ -94,7 +96,7 @@ pav_halfviolin <- function(pav_obj,
 
   }
 
-  p + labs(y = "Target Region Number") +
+  p + labs(y = y_title) +
     theme(axis.ticks.x = element_blank(),
           axis.line.x = element_blank(),
           axis.text.y = element_text(size = y_text_size, color = "black", face = "bold"),

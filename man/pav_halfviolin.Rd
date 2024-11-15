@@ -9,6 +9,7 @@ pav_halfviolin(
   violin_color = "#7e9bc0",
   add_pheno_info = NULL,
   pheno_info_color_list = NULL,
+  y_title = "Target Region Number",
   x_text_size = NULL,
   y_text_size = NULL,
   x_title_size = NULL,
@@ -24,6 +25,8 @@ pav_halfviolin(
 
 \item{pheno_info_color_list}{A list contains named vector of colors for \code{pheno_info} annotation.
 e.g. list(gender = c("Male" = "green", "Female" = "red"))}
+
+\item{y_title}{The text for the y-axis title.}
 
 \item{x_text_size}{The size of tick labels on x-axis.}
 
