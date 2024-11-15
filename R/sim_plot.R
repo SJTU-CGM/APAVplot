@@ -305,7 +305,7 @@ plot_m_sim <- function(
   value = SampleN = Length = variable = SD = Group = sd = . = NULL
   d_stat <- dl[, .(Length = mean(value), SD = sd(value)), by = c("variable", "SampleN", "Group")]
 
-  groups <- unique(d$Group)
+  groups <- sort(unique(d$Group))
 
   if(ct == "errorbar"){
 
