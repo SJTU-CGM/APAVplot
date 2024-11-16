@@ -1,8 +1,8 @@
 
 
-#' pav_heatmap
+#' Draw a PAV heat map
 #'
-#' Plot a heatmap for a object of PAV class.
+#' Plot a heat map for a object of PAV class.
 #'
 #' @param pav_obj A PAV object.
 #' @param region_type A vector of region types. These can be any of the following: "Core", "Softcore", "Distributed" and "Private".

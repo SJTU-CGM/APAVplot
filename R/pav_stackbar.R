@@ -1,6 +1,6 @@
 
 
-#' pav_stackbar
+#' Show classification in the samples
 #'
 #' The composition of regions in all samples can be viewed in `pav_stackbar()`.
 #' The chart consists of a hierarchical cluster tree and a bar plot.

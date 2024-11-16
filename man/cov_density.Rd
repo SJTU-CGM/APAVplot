@@ -2,7 +2,7 @@
 % Please edit documentation in R/cov_density.R
 \name{cov_density}
 \alias{cov_density}
-\title{cov_density}
+\title{Draw coverage distribution}
 \usage{
 cov_density(
   cov_obj,
@@ -60,5 +60,5 @@ e.g. list(source = c("reference" = "red", "novel" = "blue"), length = c("orange"
 \item{legend_grid_size}{A \code{\link[grid]{unit}} object for the size of legend grid.}
 }
 \description{
-cov_density
+Draw coverage distribution
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/pav_cluster.R
 \name{pav_cluster}
 \alias{pav_cluster}
-\title{pav_cluster}
+\title{Cluster samples}
 \usage{
 pav_cluster(
   pav_obj,

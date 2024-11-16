@@ -2,7 +2,7 @@
 % Please edit documentation in R/pheno_plot.R
 \name{pheno_manhattan}
 \alias{pheno_manhattan}
-\title{pheno_manhattan}
+\title{Draw a Manhattan plot}
 \usage{
 pheno_manhattan(
   pav_obj,
@@ -51,5 +51,5 @@ pheno_manhattan(
 \item{y_title_size}{The size of y-axis title.}
 }
 \description{
-Plot the result of phenotypic association of a certain phenotype in a Manhattan plot.
+Show the result of phenotype association of a certain phenotype in a Manhattan plot.
 }

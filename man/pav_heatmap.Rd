@@ -2,7 +2,7 @@
 % Please edit documentation in R/pav_heatmap.R
 \name{pav_heatmap}
 \alias{pav_heatmap}
-\title{pav_heatmap}
+\title{Draw a PAV heat map}
 \usage{
 pav_heatmap(
   pav_obj,
@@ -147,5 +147,5 @@ e.g. list(gender = c("Male" = "green", "Female" = "red"), age = c("yellow", "red
 \item{use_raster}{Whether render the heatmap body as a raster image. pass to \code{\link[ComplexHeatmap]{Heatmap}}}
 }
 \description{
-Plot a heatmap for a object of PAV class.
+Plot a heat map for a object of PAV class.
 }

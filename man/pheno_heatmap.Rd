@@ -2,7 +2,7 @@
 % Please edit documentation in R/pheno_plot.R
 \name{pheno_heatmap}
 \alias{pheno_heatmap}
-\title{pheno_heatmap}
+\title{Draw a phenotype heat map}
 \usage{
 pheno_heatmap(
   pav_obj,
@@ -123,5 +123,5 @@ e.g. list(source = c("reference" = "red", "novel" = "blue"), length = c("orange"
 \item{legend_grid_size}{A \code{\link[grid]{unit}} object for the size of legend grid.}
 }
 \description{
-Plot the result of phenotypic association in a heatmap.
+Show the result of phenotype association in a heat map.
 }

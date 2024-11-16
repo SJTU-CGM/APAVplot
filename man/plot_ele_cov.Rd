@@ -2,7 +2,7 @@
 % Please edit documentation in R/ele_plot.R
 \name{plot_ele_cov}
 \alias{plot_ele_cov}
-\title{plot_ele_cov}
+\title{Show element coverage}
 \usage{
 plot_ele_cov(
   data,

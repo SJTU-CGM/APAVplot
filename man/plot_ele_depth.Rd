@@ -2,7 +2,7 @@
 % Please edit documentation in R/ele_plot.R
 \name{plot_ele_depth}
 \alias{plot_ele_depth}
-\title{plot_ele_depth}
+\title{Show element depth}
 \usage{
 plot_ele_depth(
   depth_data,
@@ -85,5 +85,5 @@ e.g. list(gender = c("Male" = "green", "Female" = "red"), age = c("yellow", "red
 \item{legend_text_size}{The size of legend item labels.}
 }
 \description{
-Plot the depth of elements.
+Plot the depth of elements
 }

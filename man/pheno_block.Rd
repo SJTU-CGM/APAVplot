@@ -2,7 +2,7 @@
 % Please edit documentation in R/pheno_plot.R
 \name{pheno_block}
 \alias{pheno_block}
-\title{pheno_block}
+\title{Draw a phenotype block plot}
 \usage{
 pheno_block(
   pav_obj,
@@ -126,5 +126,5 @@ e.g. list(source = c("reference" = "red", "novel" = "blue"), length = c("orange"
 \item{legend_grid_size}{A \code{\link[grid]{unit}} object for the size of legend grid.}
 }
 \description{
-Plot the result of phenotypic association of a certain phenotype in a block chart.
+Show the result of phenotype association of a certain phenotype in a block chart.
 }

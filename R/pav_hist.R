@@ -1,6 +1,6 @@
 
 
-#' pav_hist
+#' Show classification and distribution
 #'
 #' The regions can be divided into multiple types based on how many samples are shared.
 #'  `pav_hist()` integrate a ring chart and a histogram to showing the number of region types.

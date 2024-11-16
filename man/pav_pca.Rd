@@ -2,7 +2,7 @@
 % Please edit documentation in R/pav_pca.R
 \name{pav_pca}
 \alias{pav_pca}
-\title{pav_pca}
+\title{PCA analysis}
 \usage{
 pav_pca(
   pav_obj,

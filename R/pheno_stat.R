@@ -1,6 +1,6 @@
 
 
-#' pheno_stat
+#' Phenotype association analysis
 #'
 #' Perform phenotype association calculations
 #'

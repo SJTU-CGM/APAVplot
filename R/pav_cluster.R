@@ -1,6 +1,6 @@
 
 
-#' pav_cluster
+#' Cluster samples
 #'
 #' Cluster samples based on PAV table.
 #'

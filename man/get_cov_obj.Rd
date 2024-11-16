@@ -2,7 +2,7 @@
 % Please edit documentation in R/cov_obj.R
 \name{get_cov_obj}
 \alias{get_cov_obj}
-\title{get_cov_obj}
+\title{Get an object of the COV class.}
 \usage{
 get_cov_obj(cov_data, pheno_info = NULL, region_info = NULL)
 }

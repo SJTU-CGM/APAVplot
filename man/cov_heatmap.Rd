@@ -2,7 +2,7 @@
 % Please edit documentation in R/cov_heatmap.R
 \name{cov_heatmap}
 \alias{cov_heatmap}
-\title{cov_heatmap}
+\title{Draw a coverage heat map}
 \usage{
 cov_heatmap(
   cov_obj,
@@ -132,5 +132,5 @@ e.g. list(gender = c("Male" = "green", "Female" = "red"), age = c("yellow", "red
 \item{use_raster}{A logical value indicating whether render the heatmap body as a raster image, pass to \code{\link[ComplexHeatmap]{Heatmap}}}
 }
 \description{
-cov_heatmap
+Draw a coverage heat map
 }

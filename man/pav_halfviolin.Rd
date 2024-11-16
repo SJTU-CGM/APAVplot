@@ -2,7 +2,7 @@
 % Please edit documentation in R/pav_halfviolin.R
 \name{pav_halfviolin}
 \alias{pav_halfviolin}
-\title{pav_halfviolin}
+\title{Show region number}
 \usage{
 pav_halfviolin(
   pav_obj,

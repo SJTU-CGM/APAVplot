@@ -2,7 +2,7 @@
 % Please edit documentation in R/sim_plot.R
 \name{plot_sim}
 \alias{plot_sim}
-\title{plot_sim}
+\title{Draw growth curves}
 \usage{
 plot_sim(
   data,
@@ -105,5 +105,5 @@ plot_sim(
 \item{ribbon_alpha}{The opacity of ribbon, ranging from 0 to 1.}
 }
 \description{
-Plot the result of genome simulation.
+Plot growth curve of genome simulation
 }

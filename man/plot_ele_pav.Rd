@@ -2,7 +2,7 @@
 % Please edit documentation in R/ele_plot.R
 \name{plot_ele_pav}
 \alias{plot_ele_pav}
-\title{plot_ele_pav}
+\title{Show element PAV}
 \usage{
 plot_ele_pav(
   data,

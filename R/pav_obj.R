@@ -10,8 +10,6 @@ setClass("PAV",
 )
 
 
-#' get_pav_obj
-#'
 #' Get an object of the PAV class.
 #'
 #' @param pav_data  A numeric `matrix` or `data.frame` of PAV data. `0` represent "absence" and `1` represent "presence".

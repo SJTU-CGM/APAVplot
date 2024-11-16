@@ -1,6 +1,6 @@
 
 
-#' pav_pca
+#' PCA analysis
 #'
 #' `pav_pca()` will perform PCA analysis of PAV data using `prcomp()`. The `center`, `scale`, and `rank` will pass to `prcomp()`.
 #'

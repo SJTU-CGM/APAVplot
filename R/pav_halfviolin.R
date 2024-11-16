@@ -2,7 +2,7 @@
 
 
 
-#' pav_halfviolin
+#' Show region number
 #'
 #' Plot a half-violin plot for a object of PAV class.
 #'

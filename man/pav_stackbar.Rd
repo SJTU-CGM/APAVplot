@@ -2,7 +2,7 @@
 % Please edit documentation in R/pav_stackbar.R
 \name{pav_stackbar}
 \alias{pav_stackbar}
-\title{pav_stackbar}
+\title{Show classification in the samples}
 \usage{
 pav_stackbar(
   pav_obj,

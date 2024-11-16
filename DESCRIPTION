@@ -1,5 +1,5 @@
 Package: APAVplot
-Title: What the Package Does (One Line, Title Case)
+Title: PAV analysis and visualization in pan-genome
 Version: 0.0.0.9000
 Authors@R: 
     person("Xiaorui", "Dong", email = "xiaonui8@163.com", role = c("aut", "cre"),

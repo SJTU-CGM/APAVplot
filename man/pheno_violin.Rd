@@ -2,7 +2,7 @@
 % Please edit documentation in R/pheno_plot.R
 \name{pheno_violin}
 \alias{pheno_violin}
-\title{pheno_violin}
+\title{Draw a "PAV-phenotype" violin plot}
 \usage{
 pheno_violin(
   pav_obj,
@@ -43,5 +43,5 @@ pheno_violin(
 \item{legend_text_size}{The size of legend item labels.}
 }
 \description{
-Compare a phenotype in absence/presence regions.
+Show specific phenotype data of the absence/presence group in a violin plot.
 }

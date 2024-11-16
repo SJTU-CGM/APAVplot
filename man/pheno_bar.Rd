@@ -2,7 +2,7 @@
 % Please edit documentation in R/pheno_plot.R
 \name{pheno_bar}
 \alias{pheno_bar}
-\title{pheno_bar}
+\title{Draw a "PAV-phenotype" bar plot}
 \usage{
 pheno_bar(
   pav_obj,
@@ -46,5 +46,5 @@ pheno_bar(
 \item{legend_text_size}{The size of legend item labels.}
 }
 \description{
-Draw the presence/absence of a specified region in a specified phenotype group in a barplot.
+Show the presence/absence of a specified region in a specified phenotype group in a bar plot.
 }

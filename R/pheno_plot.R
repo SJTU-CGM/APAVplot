@@ -1,9 +1,8 @@
 
 
-
-#' pheno_heatmap
+#' Draw a phenotype heat map
 #'
-#' Plot the result of phenotypic association in a heatmap.
+#' Show the result of phenotype association in a heat map.
 #'
 #' @param pav_obj A PAV object.
 #' @param pheno_stat_res The result from \code{\link[APAVplot]{pheno_stat}}.
@@ -212,9 +211,9 @@ pheno_heatmap <- function(pav_obj,
 }
 
 
-#' pheno_block
+#' Draw a phenotype block plot
 #'
-#' Plot the result of phenotypic association of a certain phenotype in a block chart.
+#' Show the result of phenotype association of a certain phenotype in a block chart.
 #'
 #' @param pav_obj A PAV object.
 #' @param pheno_stat_res The result from \code{\link[APAVplot]{pheno_stat}}.
@@ -437,9 +436,9 @@ pheno_block <- function(pav_obj,
 
 
 
-#' pheno_manhattan
+#' Draw a Manhattan plot
 #'
-#' Plot the result of phenotypic association of a certain phenotype in a Manhattan plot.
+#' Show the result of phenotype association of a certain phenotype in a Manhattan plot.
 #'
 #' @param pav_obj A PAV object.
 #' @param pheno_stat_res The result from \code{\link[APAVplot]{pheno_stat}}.
@@ -548,9 +547,9 @@ pheno_manhattan <- function(pav_obj,
 
 
 
-#' pheno_bar
+#' Draw a "PAV-phenotype" bar plot
 #'
-#' Draw the presence/absence of a specified region in a specified phenotype group in a barplot.
+#' Show the presence/absence of a specified region in a specified phenotype group in a bar plot.
 #'
 #' @param pav_obj A PAV object.
 #' @param pheno_name The name of phenotype.
@@ -618,9 +617,9 @@ pheno_bar <- function(pav_obj,
 }
 
 
-#' pheno_violin
+#' Draw a "PAV-phenotype" violin plot
 #'
-#' Compare a phenotype in absence/presence regions.
+#' Show specific phenotype data of the absence/presence group in a violin plot.
 #'
 #' @param pav_obj A PAV object.
 #' @param pheno_name The name of phenotype.

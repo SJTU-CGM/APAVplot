@@ -2,7 +2,7 @@
 % Please edit documentation in R/pheno_stat.R
 \name{pheno_stat}
 \alias{pheno_stat}
-\title{pheno_stat}
+\title{Phenotype association analysis}
 \usage{
 pheno_stat(
   pav_obj,

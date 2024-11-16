@@ -1,6 +1,6 @@
 
 
-#' cov_heatmap
+#' Draw a coverage heat map
 #'
 #'
 #'

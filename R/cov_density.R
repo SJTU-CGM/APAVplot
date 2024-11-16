@@ -1,6 +1,8 @@
 
 
-#' cov_density
+#' Draw coverage distribution
+#'
+#'
 #'
 #' @param cov_obj A COV object.
 #' @param regions A vector of regions.

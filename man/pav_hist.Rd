@@ -2,7 +2,7 @@
 % Please edit documentation in R/pav_hist.R
 \name{pav_hist}
 \alias{pav_hist}
-\title{pav_hist}
+\title{Show classification and distribution}
 \usage{
 pav_hist(
   pav_obj,

@@ -2,7 +2,7 @@
 % Please edit documentation in R/pav_obj.R
 \name{get_pav_obj}
 \alias{get_pav_obj}
-\title{get_pav_obj}
+\title{Get an object of the PAV class.}
 \usage{
 get_pav_obj(
   pav_data,

@@ -11,8 +11,6 @@ setClass("COV",
 
 
 
-#' get_cov_obj
-#'
 #' Get an object of the COV class.
 #'
 #' @param cov_data A numeric `matrix` or `data.frame` of the coverage data.
