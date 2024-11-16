@@ -66,7 +66,9 @@ pav_hist <- function(pav_obj,
     geom_bar(data = p_data, aes(x = Var1, y = Freq, fill = factor(type, levels = types)),stat = "identity", width = 0.8) +
     theme_classic() +
     scale_fill_manual(values = types_col) +
-    labs(x = "Sample Number", y = "Count", fill = "Target Region") +
+    labs(x = x_title,
+         y = y_title,
+         fill = "Target Region") +
     scale_y_continuous(expand = expansion(mult=c(0,.05))) +
     theme(legend.position = "none",
           axis.title.x = element_text(size = x_title_size, color = "black", face = "bold"),

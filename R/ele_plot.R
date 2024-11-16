@@ -782,6 +782,7 @@ get_ht_ps <- function(name,
 
   cov_d$Annotation <- data$Annotation
   ele_name <- unique(cov_d$Annotation)
+  ele_name_trunc <- gsub('\\]', "", gsub("^[^:]+:\\[", "", ele_name))
   cov_ld <- data.table::melt(data.table::data.table(cov_d), id.vars = "Annotation")
   colnames(cov_ld) <- c("Element", "Sample", "Value")
   cov_ld <- as.data.frame(cov_ld)
@@ -802,7 +803,7 @@ get_ht_ps <- function(name,
     geom_tile(color = cell_border) +
     scale_x_discrete(expand = expansion(mult=0),
                      breaks = ele_name,
-                     labels = trunc_str(ele_name, ele_name_len))+
+                     labels = trunc_str(ele_name_trunc, ele_name_len))+
     scale_y_discrete(expand = expansion(mult=0),
                      position ="right") +
     labs(fill = name) +

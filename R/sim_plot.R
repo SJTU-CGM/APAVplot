@@ -93,8 +93,10 @@ plot_sim <- function(
 
     if(data_type == "count"){
       s_data <- data[, 2:4]
+      if(is.null(y_title))  y_title <- "Number of the regions"
     }else{
       s_data <- data[, c(2,5)]
+      if(is.null(y_title))  y_title <- "Number of the increasing regions"
     }
     p <- plot_s_sim(s_data,
                     chart_type,
@@ -119,10 +121,10 @@ plot_sim <- function(
 
     if(data_type == "count"){
       m_data <- data[, c(2:4, 6)]
-      if(is.null(y_title))  y_title <- "Count"
+      if(is.null(y_title))  y_title <- "Number of the regions"
     }else{
       m_data <- data[, c(2, 5, 6)]
-      if(is.null(y_title))  y_title <- "Change value"
+      if(is.null(y_title))  y_title <- "Number of the increasing regions"
     }
     p <- plot_m_sim(m_data,
                     chart_type,

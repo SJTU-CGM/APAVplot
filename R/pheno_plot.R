@@ -604,9 +604,9 @@ pheno_bar <- function(pav_obj,
 
   ggplot(p_data, aes(x = pheno, y = value, fill = as.character(pav))) +
     geom_bar(stat = "identity", position = "stack", width = bar_width) +
-    labs(fill  = region_name, x = pheno_name, y = "Sample Number") +
+    labs(title = region_name, fill = NULL, x = pheno_name, y = "Sample Number") +
     scale_fill_manual(values = pav_colors, breaks = c(0, 1), labels = c("Absence", "Presence")) +
-    scale_y_continuous(expand = expansion(mult= c(0, .05))) +
+    scale_y_continuous(expand = expansion(mult= c(0, .1))) +
     theme_classic() +
     theme(axis.text.x = element_text(size = x_text_size, color = "black", face = "bold"),
           axis.title.x = element_text(size = x_title_size, color = "black", face = "bold"),
@@ -673,9 +673,10 @@ pheno_violin <- function(pav_obj,
 
   ggplot(p_data, aes(x = pav, y = pheno, color = pav)) +
     geom_violin() + geom_jitter() +
-    labs(color = region_name, y = pheno_name, x = "PAV") +
+    labs(title = region_name, color = NULL, y = pheno_name, x = "PAV") +
     ggsignif::geom_signif(comparisons = list(c("0","1")), color = "black") +
     scale_x_discrete(labels = c("0" = "Absence", "1" = "Presence")) +
+    scale_y_continuous(expand = expansion(mult= c(0, .1))) +
     scale_color_manual(values = pav_colors, breaks = c("0", "1"), labels = c("Absence", "Presence")) +
     theme_classic() +
     theme(axis.text.x = element_text(size = x_text_size, color = "black", face = "bold"),
