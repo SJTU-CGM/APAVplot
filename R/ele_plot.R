@@ -878,8 +878,8 @@ get_struc <- function(gff_data, gene_colors){
   p_struc <- ggplot() +
     geom_rect(data = struc_t, aes(xmin = start-.5, xmax = end+.5, ymin = tn-.1*struc_width, ymax= tn+.1*struc_width, fill = type)) +
     geom_rect(data = struc_e, aes(xmin = start-.5, xmax = end+.5, ymin = tn-.5*struc_width, ymax= tn+.5*struc_width, fill = type)) +
-    geom_rect(data = struc_c, aes(xmin = start-.5, xmax = end+.5, ymin = tn-.4*struc_width, ymax= tn+.4*struc_width, fill = type)) +
     geom_rect(data = struc_u, aes(xmin = start-.5, xmax = end+.5, ymin = tn-.2*struc_width, ymax= tn+.2*struc_width, fill = type)) +
+    geom_rect(data = struc_c, aes(xmin = start-.5, xmax = end+.5, ymin = tn-.4*struc_width, ymax= tn+.4*struc_width, fill = type)) +
     theme_classic() +
     scale_fill_manual(values = gene_colors) +
     scale_y_continuous(expand = expansion(mult=c(0,.05)),

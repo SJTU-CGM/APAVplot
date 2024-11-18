@@ -396,7 +396,7 @@ pheno_block <- function(pav_obj,
   if(flip)  groups_data <- t(groups_data)
 
   ht <- ComplexHeatmap::Heatmap(as.matrix(groups_data),
-                                name = "Presence(%)",
+                                name = "Presence\nfrequency",
                                 col = per_colors,
                                 rect_gp = grid::gpar(col = cell_border_color),
                                 right_annotation = anno_right,

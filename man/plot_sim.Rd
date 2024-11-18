@@ -7,7 +7,7 @@
 plot_sim(
   data,
   chart_type = "ribbon",
-  data_type = "count",
+  data_type = "total",
   x_title = "Sample Number",
   y_title = NULL,
   x_title_size = NULL,
@@ -44,7 +44,7 @@ plot_sim(
 
 \item{chart_type}{A character string of chart type. It should be one of "errorbar", "jitter" and "ribbon".}
 
-\item{data_type}{The type of data displayed. It should be "count" or "change".}
+\item{data_type}{The type of data displayed. It should be "total" or "increasing".}
 
 \item{x_title}{The text for the x-axis title.}
 
