@@ -176,7 +176,7 @@ plot_sim <- function(
     )
 
   p <- p + theme(
-    legend.position = ifelse(legend_show && data_type == "total", legend_side, "none"),
+    legend.position = legend_side,
     legend.direction = ifelse(legend_side %in% c("top", "bottom"),
                               "horizontal", "vertical"),
     legend.title = element_text(size = legend_title_size, color = "black", face = "bold"),
