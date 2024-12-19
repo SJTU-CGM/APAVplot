@@ -55,8 +55,8 @@ Phenotype association and visualization :
 
 Drawing growth curves :
 
-* The input is the output table from the `APAV sim` tool.
-* The `sim_plot()` function draws growth curves for genome simulation.
+* The input is the output table from the APAV `pavSize` tool.
+* The `plot_size()` function draws growth curves for genome estimation.
 
 Visualization of elements :
 
@@ -104,11 +104,11 @@ install_github("SJTU-CGM/APAVplot", build_vignettes = TRUE)
 
 ### 3.1 `COV` class
 
-The function `get_cov_obj` generates an object of the `COV` class. It requires a numeric `matrix` or a `data.frame` containing coverage data, which indicates the percentage of the target region covered by reads. Each row corresponds to a target region, while the columns represent sample. Additionally, the parameters `pheno_info` and `region_info` are optional. The `pheno_info` should be a `data.frame` that includes phenotype data and any other attributes related to the samples. The `region_info` should be a `data.frame` containing information about the target regions, such as whether they are reference or novel, along with their corresponding chromosomes and positions.
+The `get_cov_obj()` function generates an object of the `COV` class. It requires a numeric `matrix` or a `data.frame` containing coverage data, which indicates the percentage of the target region covered by reads. Each row corresponds to a target region, while the columns represent sample. Additionally, the parameters `pheno_info` and `region_info` are optional. The `pheno_info` should be a `data.frame` that includes phenotype data and any other attributes related to the samples. The `region_info` should be a `data.frame` containing information about the target regions, such as whether they are reference or novel, along with their corresponding chromosomes and positions.
 
 ### 3.2 `PAV` class
 
-The function `get_pav_obj` is used to generate an object of the `PAV` class. It requires a numeric PAV table as input, where a numeric value of `0` indicates absence and `1` indicates presence. The row names correspond to the target regions, while the column names represent the sample names. The parameters `pheno_info` and `region_info` are consistent with those in the `COV` class.
+The `get_cov_obj()` function is used to generate an object of the `PAV` class. It requires a numeric PAV table as input, where a numeric value of `0` indicates absence and `1` indicates presence. The row names correspond to the target regions, while the column names represent the sample names. The parameters `pheno_info` and `region_info` are consistent with those in the `COV` class.
 
 The parameters `add_softcore` and `add_private` are boolean values that indicate whether to include "softcore" or "private" in classifying the target region.
 
@@ -234,7 +234,7 @@ pav_halfviolin(my_pav,
 
 ### 5.2 `pav_hist()`
 
-The target regions can be categorized into multiple types based on the number of samples containing them. The function `pav_hist()` integrates a ring chart and a histogram to display the number of types. The parameters `ring_pos_x`, `ring_pos_y`, and `ring_r` specify the position and radius of the ring chart. The x-axis of the histogram represents the number of samples, ranging from 1 to the total number of samples. The y-axis indicates the number of regions shared by `x` samples.
+The target regions can be categorized into multiple types based on the number of samples containing them. The `pav_hist()` function integrates a ring chart and a histogram to display the number of types. The parameters `ring_pos_x`, `ring_pos_y`, and `ring_r` specify the position and radius of the ring chart. The x-axis of the histogram represents the number of samples, ranging from 1 to the total number of samples. The y-axis indicates the number of regions shared by `x` samples.
 
 ```{r fig.height=4, fig.width=7}
 pav_hist(my_pav, 
@@ -295,7 +295,7 @@ pav_stackbar(my_pav,
 
 ### 5.4 `pav_heatmap()`
 
-The function `pav_heatmap()` generates a heatmap that includes two summary annotations. The columns are split into blocks based on region types. If the parameter `split_block` is set to `FALSE`, the split line will be removed.
+The `pav_heatmap()` function generates a heatmap that includes two summary annotations. The columns are split into blocks based on region types. If the parameter `split_block` is set to `FALSE`, the split line will be removed.
 
 ```{r fig.height=5, fig.width=7}
 pav_heatmap(my_pav, 
@@ -334,7 +334,9 @@ The heatmap can be configured to display specific categories only.
 pav_heatmap(my_pav, 
             region_type = c("Distributed"),
             show_column_names = T,
-            column_names_size = 8)
+            column_names_size = 8,
+            anno_param_row_stat = list(title_size = 9),
+            anno_param_column_stat = list(title_size = 9))
 ```
 
 <br>
@@ -586,7 +588,7 @@ pheno_heatmap(my_pav,
 ```
 
 
-### 6.3 `pheno_manhattan`
+### 6.3 `pheno_manhattan()`
 
 If you want to further investigate a phenotype, you can create a Manhattan plot using the `pheno_manhattan()` function. This requires the chromosomes and positions to be included in the `region_info` of the `PAV` object. You can select the p-value and adjusted p-value by using the `adjust_p` parameter. The most significant *n* regions will be highlighted and labeled.
 
@@ -598,9 +600,9 @@ pheno_manhattan(my_pav, my_pheno, "Region", "chr_n", "start",
 ```
 
 
-### 6.4 `pheno_block`
+### 6.4 `pheno_block()`
 
-If the phenotype is represented by discrete values, the `pheno_block` function can be used to observe the percentage of individuals possessing the regions within each group. The number in brackets indicates the sample size for each group.
+If the phenotype is represented by discrete values, the `pheno_block()` function can be used to observe the percentage of individuals possessing the regions within each group. The number in brackets indicates the sample size for each group.
 
 ```{r fig.height=5, fig.width=7}
 pheno_block(my_pav, my_pheno, "Region", 
@@ -626,7 +628,7 @@ pheno_block(my_pav, my_pheno, "Region",
 ```
 
 
-### 6.5 `pheno_bar` and `pheno_violin`
+### 6.5 `pheno_bar()` and `pheno_violin()`
 
 The `pheno_bar()` function illustrates the relationship between a specific genomic region and a phenotype for discrete values, while the `pheno_violin()` function is intended for continuous values.
 
@@ -661,17 +663,17 @@ p[[1]] + p[[2]] + p[[3]] + p[[4]]
 
 
 
-## 7. Simulation
+## 7. Estimation
 
-### 7.1 `plot_sim()`
+### 7.1 `plot_size()`
 
-A simulation can effectively estimate genome size, and this can be achieved through the `APAV sim` tool, which generates essential input simulation results. The `plot_sim` function offers three distinct chart types: "jitter," "ribbon," and "errorbar," allowing for versatile visual representations of the data.
+A simulation can effectively estimate genome size, and this can be achieved through the APAV `pavSize` tool. The `plot_size()` function can plot the growth curve of the estimation results. It offers three distinct chart types: "jitter," "ribbon," and "errorbar," allowing for versatile visual representations of the data.
 
 ```{r fig.height=4, fig.width=6}
-data("sim_res")
-plot_sim(sim_res, y_title = "Gene Number")
-plot_sim(sim_res, chart_type = "jitter", y_title = "Gene Number")
-plot_sim(sim_res, chart_type = "errorbar", y_title = "Gene Number")
+data("est_res")
+plot_size(est_res, y_title = "Gene Number")
+plot_size(est_res, chart_type = "jitter", y_title = "Gene Number")
+plot_size(est_res, chart_type = "errorbar", y_title = "Gene Number")
 ```
 
 <br>
@@ -679,11 +681,11 @@ plot_sim(sim_res, chart_type = "errorbar", y_title = "Gene Number")
 Moreover, you have the option to plot increasing values alongside these charts.
 
 ```{r fig.height=4, fig.width=6}
-plot_sim(sim_res, data_type = "increasing", 
+plot_size(est_res, data_type = "increasing", 
          y_title = "Number of the increasing gene")
-plot_sim(sim_res, data_type = "increasing", chart_type = "jitter", 
+plot_size(est_res, data_type = "increasing", chart_type = "jitter", 
          y_title = "Number of the increasing gene")
-plot_sim(sim_res, data_type = "increasing", chart_type = "errorbar", 
+plot_size(est_res, data_type = "increasing", chart_type = "errorbar", 
          y_title = "Number of the increasing gene")
 ```
 
@@ -692,7 +694,7 @@ plot_sim(sim_res, data_type = "increasing", chart_type = "errorbar",
 Each chart type is fully customizable, enabling adjustments to color, size, and transparency to suit specific presentation needs.
 
 ```{r fig.height=4, fig.width=6}
-plot_sim(sim_res, 
+plot_size(est_res, 
          chart_type = "ribbon",
          path_size = .5,
          path_color = c(Pan = "black", Core = "black"),
@@ -701,7 +703,7 @@ plot_sim(sim_res,
 ```
 
 ```{r fig.height=4, fig.width=6}
-plot_sim(sim_res,
+plot_size(est_res,
          chart_type = "errorbar",
          errorbar_width = .1,
          errorbar_size = 1,
@@ -712,7 +714,7 @@ plot_sim(sim_res,
 ```
 
 ```{r fig.height=4, fig.width=6}
-plot_sim(sim_res, 
+plot_size(est_res, 
          chart_type = "jitter",
          jitter_width = .1,
          jitter_size = 1,
@@ -724,19 +726,19 @@ plot_sim(sim_res,
 
 <br>
 
-When working with grouped samples, the `sim_plot` function can be employed to create individualized growth curves for each group, facilitating a more nuanced analysis.
+When working with grouped samples, the `plot_size()` function can be employed to create individualized growth curves for each group, facilitating a more nuanced analysis.
 
 ```{r fig.height=4, fig.width=6}
-data("sim_group_res")
-plot_sim(sim_group_res,
+data("est_group_res")
+plot_size(est_group_res,
          path_color = c(CentralAsiaSiberia = "#4d9242"),
          ribbon_fill = c(CentralAsiaSiberia = "gray"))
-plot_sim(sim_group_res, 
+plot_size(est_group_res, 
          chart_type = "jitter",
          jitter_alpha = .3,
          jitter_point_color = c(CentralAsiaSiberia = "#4d9242"),
          jitter_color = c(CentralAsiaSiberia = "gray"))
-plot_sim(sim_group_res, 
+plot_size(est_group_res, 
          chart_type = "errorbar",
          errorbar_point_color = c(CentralAsiaSiberia = "#4d9242"),
          errorbar_color = c(CentralAsiaSiberia = "gray"))
@@ -766,7 +768,7 @@ Samples can also be annotated with phenotypic information alongside the heatmap.
 ```{r fig.height=6, fig.width=9}
 plot_ele_pav(ele_pav, pheno_data = ele_pheno, cell_border = "white", pheno_border = "white")
 plot_ele_cov(ele_cov, pheno_data = ele_pheno, cell_border = "white", pheno_border = "white")
-plot_ele_depth(ele_depth, ele_cov, pheno_data = ele_pheno)
+plot_ele_depth(ele_depth, ele_cov, pheno_data = ele_pheno, top_anno_height = 0.2)
 ```
 
 <br>

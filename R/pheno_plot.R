@@ -612,7 +612,7 @@ pheno_bar <- function(pav_obj,
           axis.text.y = element_text(size = y_text_size, color = "black", face = "bold"),
           axis.title.y = element_text(size = y_title_size, color = "black", face = "bold"),
           legend.position = legend_side,
-          legend.title = element_text(size = legend_title_size, color = "black", face = "bold"),
+          title = element_text(size = legend_title_size, color = "black", face = "bold"),
           legend.text = element_text(size = legend_text_size, color = "black", face = "bold"))
 }
 
@@ -683,7 +683,7 @@ pheno_violin <- function(pav_obj,
           axis.text.y = element_text(size = y_text_size, color = "black", face = "bold"),
           axis.title.y = element_text(size = y_title_size, color = "black", face = "bold"),
           legend.position = legend_side,
-          legend.title = element_text(size = legend_title_size, color = "black", face = "bold"),
+          title = element_text(size = legend_title_size, color = "black", face = "bold"),
           legend.text = element_text(size = legend_text_size, color = "black", face = "bold"))
 }
 

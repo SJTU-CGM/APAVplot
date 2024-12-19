@@ -47,35 +47,35 @@
 "gene_info_data"
 
 
-#' Simulation result
+#' Estimation result
 #'
 #'
-#' @format ## `sim_res`
+#' @format ## `est_res`
 #' A data frame with 1110 rows and 5 columns:
 #' \describe{
-#'   \item{Round}{Simulation round}
+#'   \item{Round}{Estimation round}
 #'   \item{SampleN}{The number of selected samples}
 #'   \item{Core}{The number of core regions}
 #'   \item{Pan}{The number of all regions}
 #'   \item{Delta}{The number of novel regions}
 #' }
-"sim_res"
+"est_res"
 
 
-#' Simulation result with grouped samples
+#' Estimation result with grouped samples
 #'
 #'
-#' @format ## `sim_group_res`
+#' @format ## `est_group_res`
 #' A data frame with 1110 rows and 6 columns:
 #' \describe{
-#'   \item{Round}{Simulation round}
+#'   \item{Round}{Estimation round}
 #'   \item{SampleN}{The number of selected samples}
 #'   \item{Core}{The number of core regions}
 #'   \item{Pan}{The number of all regions}
 #'   \item{Delta}{The number of novel regions}
 #'   \item{Group}{The group of samples}
 #' }
-"sim_group_res"
+"est_group_res"
 
 
 #' Coverage profile of elements
